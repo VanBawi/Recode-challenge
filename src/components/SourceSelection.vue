@@ -1,16 +1,21 @@
 <template>
-    <div class="sourceselection col-md-12">
-
-        <h4 class="header_box"> </h4>
-        <h4 class="logo_text">REALBOX</h4>
-     
-        <div class="col-md-12">
-         <select class="form-control navbar-default" v-on:change="sourceChanged">
-          <option value="">Please select news source ...</option>
-          <option v-for="source in sources.slice(0, 4)" v-bind:value="source.id">{{source.name}}</option>
-        </select>
+    <div class="">
+        <div >
+            <h4 class="header_box"> </h4>
+            <h4 class="logo_text">REALBOX</h4>
         </div>
+      <div>
+          <b-card-header header-tag="nav">
+            <b-nav card-header >
+                
+                <b-nav-item active v-for="source in sources.slice(0, 4)" v-bind:value="source.id">{{source.name}}</b-nav-item>
+                <b-nav-item v-on:click="created"></b-nav-item>
+            </b-nav>
+          </b-card-header>
     </div>
+    </div>
+
+    
 </template>
 
 <script>
@@ -23,14 +28,14 @@ export default {
         }
     },
     methods: {
-        sourceChanged: function (e) {
+        newsDisplay: function (e) {
             
             for (var i=0; i< this.sources.length; i++) {
                 if (this.sources[i].id ==e.target.value){
                     this.source = this.sources[i];
                 }
             }
-            this.$emit('sourceChanged', e.target.value);
+            this.$emit('newsDisplay', e.target.value);
         }
     },
     created: function () {
@@ -67,8 +72,7 @@ export default {
     float: left;
     
 }
- .navbar-default{
-    /* top: 76px; */
+ /* .navbar-default{
     left: 0px;
     width: 307px;
     height: 57px;
@@ -77,5 +81,5 @@ export default {
     font-family: Helvetica Neue, Bold;
     font-size: 20px;
     clear: both;
- }
+ } */
 </style>

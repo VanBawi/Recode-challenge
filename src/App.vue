@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style>
-#app {
+/* #app {
   padding-top: 20px;
-}
+} */
 </style>

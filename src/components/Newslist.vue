@@ -1,29 +1,15 @@
 <template>
     <div class="newslist">
-        <!-- <h1> hello</h1> -->
-        <div >
-            <div class="col-md-12"
-                <ul class="media-list">
-                       <!-- <h2> {{source.selected.name}}</h2> -->
-                    <li class="media" v-for="article in articles">
-                        <div class="col-md-3">
-                         
-                            <a v-bind:href="article.url" target="_blank">
-                                <img class="image-size" v-bind:src="article.urlToImage">
-                            </a>
-                            <p> {{article.description}}</p>
-                        </div>
-                        <!-- <div class="media-body"> -->
-                            <!-- <h4 class="media-heading">
-                                <a v-bind:href="article.url" target="_blank">{{article.title}}</a>
-                            </h4> -->
-                            <!-- <h5><i>{{article.author}} </i></h5> -->
-                            
-                        <!-- </div> -->
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <b-container md="12" class="bv-news-row ">  
+            <b-row>
+                <b-col md="3" class="card" v-for="article in articles.slice(0, 6)">    
+                    <a v-bind:href="article.url" target="_blank">
+                        <b-img class="image-size" fluid v-bind:src="article.urlToImage"></b-img>
+                    </a>
+                    <p> {{article.description.slice(0, 120)}}</p>
+                </b-col>
+            </b-row>
+        </b-container>  
     </div>
 </template>
 
@@ -57,15 +43,8 @@ export default {
 </script>
 
 <style scoped>
-  .image-size {
-    width: 300px;
-    height: 300px;
-    padding: 10px;
 
-  }
-  .media {
-    /* border-top: 1px solid lightgray; */
-    padding-top: 20px;
-  }
-
+.card{
+    margin: 10px;
+}
 </style>
