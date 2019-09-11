@@ -4,7 +4,7 @@
             <h4 class="header_box"> </h4>
             <h4 class="logo_text">REALBOX</h4>
         </div>
-      <div>
+      <div class="navbar_links">
           <b-card-header header-tag="nav">
             <b-nav card-header >
                 
@@ -12,7 +12,7 @@
                 <b-nav-item v-on:click="created"></b-nav-item>
             </b-nav>
           </b-card-header>
-    </div>
+        </div>
     </div>
 
     
@@ -48,9 +48,12 @@ export default {
 </script>
 
 <style scoped>
+
+ @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+ 
 .header_box{
     top: 28px;
-    left: 42px;
+    margin-left: 12px;
     width: 26px;
     height: 26px;
     background: #EFCB56 0% 0% no-repeat padding-box;
@@ -59,7 +62,7 @@ export default {
 }
 .logo_text{
     top: 28px;
-    left: 86px;
+    margin-left: 20px;
     width: 120px;
     height: 24px;
     text-align: left;
@@ -72,14 +75,8 @@ export default {
     float: left;
     
 }
- /* .navbar-default{
-    left: 0px;
-    width: 307px;
-    height: 57px;
-    background: #F7F7F7 0% 0% no-repeat padding-box;
-    opacity: 1;
-    font-family: Helvetica Neue, Bold;
-    font-size: 20px;
+.navbar_links{
     clear: both;
- } */
+}
+
 </style>
