@@ -1,15 +1,13 @@
 <template>
-    <div class="">
+    <div class="sourceselection">
         <div >
             <h4 class="header_box"> </h4>
             <h4 class="logo_text">REALBOX</h4>
         </div>
-      <div>
+      <div class="navbar_links">
           <b-card-header header-tag="nav">
-            <b-nav card-header >
-                
-                <b-nav-item active v-for="source in sources.slice(0, 4)" v-bind:value="source.id">{{source.name}}</b-nav-item>
-                <b-nav-item v-on:click="created"></b-nav-item>
+            <b-nav card-header @click="newsDisplay">
+                <b-nav-item v-for="source in sources.slice(0, 4)" v-bind:value="source.id">{{source.name}}</b-nav-item>  
             </b-nav>
           </b-card-header>
     </div>
@@ -72,14 +70,8 @@ export default {
     float: left;
     
 }
- /* .navbar-default{
-    left: 0px;
-    width: 307px;
-    height: 57px;
-    background: #F7F7F7 0% 0% no-repeat padding-box;
-    opacity: 1;
-    font-family: Helvetica Neue, Bold;
-    font-size: 20px;
-    clear: both;
- } */
+
+ .navbar_links{
+     clear: both;
+ }
 </style>
