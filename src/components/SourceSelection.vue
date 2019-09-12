@@ -1,19 +1,25 @@
+
 <template>
-    <div class="sourceselection">
+    <div class="">
         <div >
             <h4 class="header_box"> </h4>
-            <h4 class="logo_text">REALBOX</h4>
+            <h3 class="logo_text">REALBOX</h3>
         </div>
-      <div class="navbar_links">
+         
+        <div class="navbar_links">
           <b-card-header header-tag="nav">
-            <b-nav card-header @click="newsDisplay">
-                <b-nav-item v-for="source in sources.slice(0, 4)" v-bind:value="source.id">{{source.name}}</b-nav-item>  
+            <b-nav card-header >
+                <select class="form-control" v-on:click="sourceChanged">
+                    <option active v-for="source in sources.slice(0, 4)" v-bind:value="source.id">{{source.name}}</option >
+                </select>  
             </b-nav>
           </b-card-header>
+        </div>
+        <div class="container">
+            <p>{{source.name}}</p>
+        </div>
     </div>
-    </div>
-
-    
+ 
 </template>
 
 <script>
@@ -26,14 +32,14 @@ export default {
         }
     },
     methods: {
-        newsDisplay: function (e) {
+        sourceChanged: function (e) {
             
             for (var i=0; i< this.sources.length; i++) {
                 if (this.sources[i].id ==e.target.value){
                     this.source = this.sources[i];
                 }
             }
-            this.$emit('newsDisplay', e.target.value);
+            this.$emit('sourceChanged', e.target.value);
         }
     },
     created: function () {
@@ -46,6 +52,24 @@ export default {
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');
+
+h4 {
+    margin: 20px;
+}
+h3{
+    margin-top: 22px;
+    font-size: 20px;
+    float: left;
+    text-align: left;
+    font: Bold 20px/25px Helvetica Neue;
+    letter-spacing: 4px;
+    color: #707070;
+    opacity: 1;
+    font-family: Helvetica Neue, Bold;
+}
+
 .header_box{
     top: 28px;
     left: 42px;
@@ -55,23 +79,16 @@ export default {
     opacity: 1;
     float: left;
 }
-.logo_text{
-    top: 28px;
-    left: 86px;
-    width: 120px;
-    height: 24px;
-    text-align: left;
-    font: Bold 20px/25px Helvetica Neue;
-    letter-spacing: 4px;
-    color: #707070;
-    opacity: 1;
-    font-family: Helvetica Neue, Bold;
-    font-size: 20px;
-    float: left;
-    
-}
 
  .navbar_links{
-     clear: both;
+    clear: both;
+ }
+ p{
+    text-align: left;
+    font: Bold 50px/61px Helvetica Neue;
+    letter-spacing: 1px;
+    color: #707070;
+    opacity: 1;
+    margin: 10px 0px 10px 0px;
  }
 </style>

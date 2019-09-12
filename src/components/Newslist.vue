@@ -1,12 +1,15 @@
-<template>
+<template>  
     <div class="newslist">
         <b-container md="12" class="bv-news-row ">  
             <b-row>
-                <b-col md="3" class="card" v-for="article in articles.slice(0, 6)">    
+                <b-col md="4" class="object_padding" v-for="article in articles.slice(0, 6)">    
                     <a v-bind:href="article.url" target="_blank">
                         <b-img class="image-size" fluid v-bind:src="article.urlToImage"></b-img>
                     </a>
-                    <p> {{article.description.slice(0, 120)}}</p>
+                    <div class="text_body">
+                        <h5><strong> {{article.title.slice(0, 50) }}</strong> </h5>
+                        <p> {{article.description.slice(0, 90)}}</p>
+                    </div>
                 </b-col>
             </b-row>
         </b-container>  
@@ -43,8 +46,43 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');
 
 .card{
     margin: 10px;
+}
+.image-size{
+    width: 100%;
+    object-fit: cover;
+}
+.text_body{
+    border: 0.5px solid lightgray;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+
+}
+h5, p{
+    margin: 0px 17px 10px 17px;
+}
+.object_padding{
+    margin-bottom: 30px;
+    
+}
+h5{
+    text-align: left;
+    font: Bold 20px/25px Helvetica Neue;
+    letter-spacing: 0.4px;
+    color: #555555;
+    opacity:1;
+    font-size: 20px;
+    padding-top: 10px;
+}
+.p{
+    text-align: left;
+    font: Regular 16px/18px Helvetica Neue;
+    letter-spacing: 0.32px;
+    color: #555555;
+    opacity: 1;
 }
 </style>
