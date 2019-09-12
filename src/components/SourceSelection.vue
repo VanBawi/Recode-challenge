@@ -72,7 +72,7 @@ h3{
 
 .header_box{
     top: 28px;
-    left: 42px;
+    margin-left: 12px;
     width: 26px;
     height: 26px;
     background: #EFCB56 0% 0% no-repeat padding-box;
