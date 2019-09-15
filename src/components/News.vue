@@ -1,11 +1,13 @@
 <template>  
-    <div class="newslist">
-        <b-container md="12" class="bv-news-row ">  
+    <div>
+        <b-container md="12" class="bv-news-row">  
             <b-row>
-                <b-col md="4" class="object_padding" v-for="article in articles.slice(0, 6)">    
+                <!--transforming images into links -->
+                <b-col md="4" class="object_padding" v-for="article in articles.slice(0, 6)" v-bind:key="">    
                     <a v-bind:href="article.url" target="_blank">
                         <b-img class="image-size" fluid v-bind:src="article.urlToImage"></b-img>
                     </a>
+                    <!--media title and description minimized -->
                     <div class="text_body">
                         <h5><strong> {{article.title.slice(0, 50) }}</strong> </h5>
                         <p> {{article.description.slice(0, 90)}}</p>
@@ -16,13 +18,15 @@
     </div>
 </template>
 
+
+
 <script>
 export default {
     name: 'newslist',
     props: ['source'],
     data () {
         return {
-            articles: []
+            articles: [] //will return array of articles
         }
     },
     methods: {
@@ -33,6 +37,7 @@ export default {
             });
         }
     },
+    // this section displays the news
     created: function () {
         this.updateSource(this.source);
     },
@@ -48,13 +53,17 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');
 
-.card{
-    margin: 10px;
-}
+/* image styling section */
 .image-size{
     width: 100%;
     object-fit: cover;
 }
+.object_padding{
+    margin-bottom: 30px;
+    
+}
+
+/* all text styling section */
 .text_body{
     border: 0.5px solid lightgray;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -65,10 +74,7 @@ export default {
 h5, p{
     margin: 0px 17px 10px 17px;
 }
-.object_padding{
-    margin-bottom: 30px;
-    
-}
+
 h5{
     text-align: left;
     font: Bold 20px/25px Helvetica Neue;
@@ -78,7 +84,7 @@ h5{
     font-size: 20px;
     padding-top: 10px;
 }
-.p{
+p{
     text-align: left;
     font: Regular 16px/18px Helvetica Neue;
     letter-spacing: 0.32px;

@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-   <SourceSelection v-on:sourceChanged="sourceChanged"> </SourceSelection>
-   <Newslist v-bind:source="source"> </Newslist>
+   <Source v-on:newsDisplay="newsDisplay"> </Source>
+   <News v-bind:source="source"> </News>
   </div>
 </template>
 
 <script>
-import SourceSelection from './components/SourceSelection'
-import Newslist from './components/Newslist'
+import Source from './components/Source'
+import News from './components/News'
 
 export default {
   name: 'app',
   components: {
-    SourceSelection,
-    Newslist
+    Source,
+    News
   },
   data () {
     return {
@@ -21,7 +21,7 @@ export default {
     }
   },
   methods: {
-    sourceChanged: function (source) {
+    newsDisplay: function (source) {
       this.source = source;
     }
   }
