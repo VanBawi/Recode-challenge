@@ -99,7 +99,7 @@ h3{
     padding-top: 15px;
  }
  option:hover{
-    background-color: lightgray;
+    background-color: white;
     padding-bottom: 4px solid #EFCB56; 
  }
 option:active{
